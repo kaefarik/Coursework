@@ -2,12 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-    CommandLineParser parser;
-    std::string outputFile;
-    std::vector<std::string> words;
-    if (!parser.parse(argc, argv, outputFile, words)) {
-        return 0;
-    }
+    wordCloudGenerator(argc, argv);
 
     return 0;
 }

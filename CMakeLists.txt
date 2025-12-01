@@ -8,8 +8,13 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui)
 add_executable(Coursework
     main.cpp
     prototypes.h
-    classes.cpp
-    commandlineparser.cpp
+    word.cpp
+    commandlineparse.cpp
+    wordstats.cpp
+
+    wordcloudgenerator.cpp
+    coloring.cpp
+    wordplace.cpp
 )
 
 target_link_libraries(Coursework

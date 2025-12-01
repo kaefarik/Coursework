@@ -1,10 +1,10 @@
 #include "prototypes.h"
 
 //https://stackoverflow.com/questions/51949/how-to-get-file-extension-from-string-in-c
-bool CommandLineParser::parse(int argc,
-                              char *argv[],
-                              std::string &outputFile,
-                              std::vector<std::string> &words)
+bool commandLineParse(int argc,
+                      char *argv[],
+                      std::string &outputFile,
+                      std::vector<std::string> &input_words)
 {
     // argc
     if (argc < 3) {
@@ -20,7 +20,7 @@ bool CommandLineParser::parse(int argc,
     }
     outputFile = argv[1];
     int startIndex = 2;
-    //добавляем слова из txt в вектор words, если такой есть
+    //добавляем слова из txt в вектор input_words, если такой есть
     std::filesystem::path txtFilePath = argv[2];
     if (txtFilePath.extension() == ".txt") {
         std::ifstream file(txtFilePath);
@@ -31,13 +31,13 @@ bool CommandLineParser::parse(int argc,
 
         std::string line;
         while (file >> line) {
-            words.push_back(line);
+            input_words.push_back(line);
         }
         startIndex = 3;
     }
     //добавляем слова из командной строки в вектор words
     for (int i = startIndex; i < argc; i++) {
-        words.push_back(argv[i]);
+        input_words.push_back(argv[i]);
     }
 
     return true;
