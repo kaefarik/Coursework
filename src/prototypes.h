@@ -5,8 +5,8 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QPainter>
+#include <QPoint>
 #include <QSize>
-#include <Qpoint>
 #include <QtGui/QColor>
 #include <algorithm>
 #include <cmath>
