@@ -5,6 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui)
 
+configure_file(
+    ${CMAKE_SOURCE_DIR}/chrysuni.ttf
+    ${CMAKE_BINARY_DIR}/chrysuni.ttf
+    COPYONLY
+)
+
 add_executable(Coursework
     src/main.cpp
     src/prototypes.h
