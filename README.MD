@@ -79,13 +79,9 @@ cd build`
 
 `mkdir build && cd build`
 
-`cmake -DCMAKE_BUILD_TYPE=Release ..`
+`cmake ..`
 
-`make -j$(nproc)`
-
-** Или с Ninja **
-
-`cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ..`
+`cmake --build .`
 
 # Запуск проекта через терминал
 
@@ -163,6 +159,6 @@ image c++ cloud word
 
 или
 
-`CourseworkTest`
+`./CourseworkTest`
 
 затем откройте папку build/test_images
