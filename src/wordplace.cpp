@@ -9,7 +9,7 @@ QPoint wordPlace(const int &width,
     const int centerX = IMAGE_WIDTH / 2;
     const int centerY = IMAGE_HEIGHT / 2;
 
-    // Лямбда для проверки возможности размещения (стандартная)
+    // Лямбда для проверки возможности размещения
     auto canPlace = [&](int x, int y) -> bool {
         if (x < 0 || y < 0 || x + width > IMAGE_WIDTH || y + height > IMAGE_HEIGHT) {
             return false;
@@ -28,35 +28,33 @@ QPoint wordPlace(const int &width,
     //первые три слова
 
     if (wordIndex == 0) {
-        // 1. Самое большое слово по центру
+        //Самое большое слово по центру
         int x = centerX - width / 2;
         int y = centerY - height / 2;
         if (canPlace(x, y)) {
             return QPoint(x, y);
         }
     } else if (wordIndex == 1 && !placedRects.empty()) {
-        // 2. Второе слово над центральным
+        //Второе слово над центральным
         const QRect &centerRect = placedRects[0];
 
-        // РАССЧИТЫВАЕМ НАЛОЖЕНИЕ
         // Смещаем слово вниз на 25% его высоты, чтобы убрать пустой отступ шрифта
         int overlap = height / 4;
 
         int x = centerRect.center().x() - width / 2;
-        // top - height + overlap (сдвигаем ниже, внутрь центрального)
+        //сдвигаем ниже, внутрь центрального
         int y = centerRect.top() - height + overlap;
 
         return QPoint(x, y);
 
     } else if (wordIndex == 2 && !placedRects.empty()) {
-        // 3. Третье слово под центральным
+        //Третье слово под центральным
         const QRect &centerRect = placedRects[0];
 
-        // РАССЧИТЫВАЕМ НАЛОЖЕНИЕ
         int overlap = height / 4;
 
         int x = centerRect.center().x() - width / 2;
-        // bottom - overlap (сдвигаем выше, внутрь центрального)
+        //сдвигаем выше, внутрь центрального
         int y = centerRect.bottom() - overlap;
 
         return QPoint(x, y);
@@ -88,5 +86,4 @@ QPoint wordPlace(const int &width,
         angle += angleStep;
         radius += radiusGrowth;
     }
-    //return QPoint(-1, -1);
 }

@@ -12,7 +12,6 @@ void imageRenderer(const std::vector<Word> &words,
     QPainter painter(&image);
 
     for (const auto &it : words) {
-        //QFont font("Chrysanthi Unicode", it.fontSize);
         painter.setFont(it.font);
         painter.setPen(it.color);
 

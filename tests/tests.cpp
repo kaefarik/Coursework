@@ -56,7 +56,7 @@ public:
     }
 };
 
-//ТЕСТЫ КОЛИЧЕСТВА СЛОВ
+//тесты количества слов
 
 TEST_F(WordCloudGeneratorTest, 0_Words)
 {

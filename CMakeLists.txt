@@ -6,15 +6,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui)
 
 add_executable(Coursework
-    main.cpp
-    prototypes.h
-    word.cpp
-    commandlineparse.cpp
-    wordstats.cpp
+    src/main.cpp
+    src/prototypes.h
+    src/word.cpp
+    src/commandlineparse.cpp
+    src/wordstats.cpp
+    src/wordcloudgenerator.cpp
+    src/wordplace.cpp
+    src/imagerenderer.cpp
+)
 
-    wordcloudgenerator.cpp
-    coloring.cpp
-    wordplace.cpp
+#поиск заголовков
+target_include_directories(Coursework
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 target_link_libraries(Coursework
@@ -23,8 +28,35 @@ target_link_libraries(Coursework
         Qt::Gui
 )
 
-include(GNUInstallDirs)
-install(TARGETS Coursework
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG        v1.17.0
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(CourseworkTests
+    tests/tests.cpp
+    src/prototypes.h
+    src/word.cpp
+    src/commandlineparse.cpp
+    src/wordstats.cpp
+    src/wordcloudgenerator.cpp
+    src/wordplace.cpp
+    src/imagerenderer.cpp
+)
+
+target_include_directories(CourseworkTests
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(CourseworkTests
+    PRIVATE
+        Qt::Core
+        Qt::Gui
+        GTest::gtest
 )
