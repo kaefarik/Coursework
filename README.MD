@@ -6,7 +6,7 @@
 
 Установите CMake 3.19 или выше https://cmake.org/download/
 
-Установите Qt 6.5 или выше https://www.qt.io/development/download
+Установите Qt 6 или выше https://www.qt.io/development/download
 
 C++17 компилятор
 
