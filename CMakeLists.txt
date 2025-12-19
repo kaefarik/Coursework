@@ -3,7 +3,7 @@ project(Coursework LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui)
+find_package(Qt6 6 REQUIRED COMPONENTS Core Gui)
 
 configure_file(
     ${CMAKE_SOURCE_DIR}/chrysuni.ttf
