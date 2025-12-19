@@ -30,8 +30,8 @@ target_include_directories(Coursework
 
 target_link_libraries(Coursework
     PRIVATE
-        Qt::Core
-        Qt::Gui
+        Qt6::Core
+        Qt6::Gui
 )
 
 include(FetchContent)
@@ -62,7 +62,7 @@ target_include_directories(CourseworkTests
 
 target_link_libraries(CourseworkTests
     PRIVATE
-        Qt::Core
-        Qt::Gui
+        Qt6::Core
+        Qt6::Gui
         GTest::gtest
 )

@@ -11,31 +11,7 @@
 C++17 компилятор
 
 # Сборка для Windows
-# Вариант 1
-# Clang (LLVM-MinGW)
 
-*cmd*
-
-**Создайте папку сборки**
-
-`mkdir build
-cd build`
-
-**Конфигурация с явным указанием путей**
-
-`cmake -G "MinGW Makefiles" ^
-    -DCMAKE_PREFIX_PATH="C:/Qt/6.9.3/llvm-mingw_64" ^
-    -DCMAKE_C_COMPILER="clang" ^
-    -DCMAKE_CXX_COMPILER="clang++" ^
-    -DCMAKE_MAKE_PROGRAM="C:/msys64/mingw64/bin/mingw32-make.exe" ^
-    ..`
-
-**Сборка проекта**
-
-`cmake --build .`
-
-
-# Вариант 2
 # MinGW (MSYS2)
 
 *cmd*
@@ -49,8 +25,8 @@ cd build`
 
 `cmake -G "MinGW Makefiles" ^
     -DCMAKE_PREFIX_PATH="C:/Qt/6.9.3/mingw_64" ^
-    -DCMAKE_C_COMPILER="gcc" ^
-    -DCMAKE_CXX_COMPILER="g++" ^
+    -DCMAKE_C_COMPILER="C:/msys64/mingw64/bin/gcc.exe" ^
+    -DCMAKE_CXX_COMPILER="C:/msys64/mingw64/bin/g++.exe" ^
     -DCMAKE_MAKE_PROGRAM="C:/msys64/mingw64/bin/mingw32-make.exe" ^
     ..`
 
@@ -89,7 +65,7 @@ cd build`
 
 **Синтаксис команды запуска**
 
-Coursework.exe(если Windows)/Coursework(Linux)
+Coursework.exe(если Windows) | ./Coursework(Linux)
 
 `Coursework.exe <out.jpg> <words.txt> <слово1> [слово2] [слово3] ...`
 
